@@ -1,16 +1,28 @@
 # KooAI Skills
 
-Public, reusable skills for KooAI market research and ecommerce analysis.
+面向 Coupang 卖家的公开 KooAI Skills 集合，用于市场数据查询、选品分析与本地报告生成。
 
-## Included skills
+## Coupang 是什么
 
-| Skill | Purpose |
+[Coupang（酷澎）](https://www.coupang.com/) 是韩国电商平台。本仓库中的 Skill 聚焦跨境卖家常见的调研问题：类目与商品表现、价格带、买家评论、关键词、竞品，以及进入某个细分市场前的选品判断。
+
+本仓库与 Coupang 没有隶属或官方合作关系；任何商品、销量、价格或评价分析都应以数据截止日和实际可访问范围为准。
+
+## KooAI 是什么
+
+[科跃 KOO AI](https://www.kooai.top/) 是面向 Coupang 卖家的数据查询、选品与运营分析平台。科跃助手用于在浏览器页面中查看和采集可访问的信息；KOO AI 工作台用于商品、类目、关键词与经营主体的复盘分析。公开数据会标注 T-1 或实际缓存截止日，适合选品判断和横向比较，不等同于 Coupang 官方结算或财务口径。
+
+本仓库沉淀的是可复用的 AI Skill，而不是 KooAI 的后台代码、数据库或账号系统。
+
+## 已收录 Skill
+
+| Skill | 用途 |
 | --- | --- |
-| `kooai-selection-standalone` | Use authenticated KooAI MCP data to analyze Coupang categories, products and reviews; screen opportunities with a seven-gate funnel; then create a local, filterable and exportable report. |
+| `kooai-selection-standalone` | 使用已认证的 KooAI MCP 查询 Coupang 类目、商品与评论；通过七关漏斗和机会分筛选候选；生成可筛选、可导出的本地选品报告。 |
 
-## Install a skill
+## 安装 Skill
 
-Clone this repository and copy the desired directory into your Codex skills folder:
+克隆仓库后，把所需 Skill 安装到 Codex 的全局 Skills 目录：
 
 ```bash
 git clone https://github.com/wuhongchen/KooAI-skill.git
@@ -18,15 +30,15 @@ python3 KooAI-skill/skills/kooai-selection-standalone/scripts/install.py --dry-r
 python3 KooAI-skill/skills/kooai-selection-standalone/scripts/install.py
 ```
 
-Restart or open a new Codex session after installation. Invoke the first skill with `$kooai-selection-standalone`.
+安装后重启或新开 Codex 会话，再使用 `$kooai-selection-standalone` 调用选品 Skill。
 
-## Data and security boundary
+## 数据与安全边界
 
-- KooAI MCP is the data source; skills must not embed, print or persist API keys, OAuth tokens, cookies or database credentials.
-- The standalone selection skill consumes authenticated Coupang market data and writes only credential-free report snapshots to a local loopback page.
-- 1688/Ego checks are explicit candidate-level follow-up actions. A displayed 1688 price is a sourcing lead, not a confirmed procurement cost.
+- KooAI MCP 是数据来源；Skill 不得嵌入、打印或保存 API Key、OAuth 令牌、Cookie 或数据库凭据。
+- 独立选品 Skill 只将不含凭据的报告快照写入本地回环页面。
+- 1688/Ego 查询是用户明确发起的候选级补充动作；页面展示价只是供货线索，不是已确认的采购成本。
 
-## Repository layout
+## 仓库结构
 
 ```text
 skills/<skill-name>/
@@ -36,8 +48,8 @@ skills/<skill-name>/
 └── scripts/
 ```
 
-New public skills should be self-contained, include no private project data, and follow the same layout.
+后续新增的公开 Skill 应保持自包含，不携带私有项目数据，并沿用该目录结构。
 
-## License
+## 许可证
 
-MIT. See [LICENSE](LICENSE).
+采用 MIT License，详见 [LICENSE](LICENSE)。
