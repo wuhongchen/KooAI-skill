@@ -19,7 +19,7 @@
     "data_snapshots": [{
       "tool": "search_products",
       "data_date": "2026-08-10",
-      "source": "database:products",
+      "source": "kooai-mcp:products",
       "warnings": []
     }],
     "screening_funnel": [
