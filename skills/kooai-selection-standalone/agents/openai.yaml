@@ -1,0 +1,4 @@
+interface:
+  display_name: "KooAI 独立选品"
+  short_description: "基于 KooAI MCP 生成并展示独立的 Coupang 选品报告"
+  default_prompt: "Use $kooai-selection-standalone to diagnose my seller profile and generate a standalone Coupang selection report."
