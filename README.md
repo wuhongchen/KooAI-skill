@@ -19,6 +19,7 @@
 | Skill | 用途 |
 | --- | --- |
 | `kooai-selection-standalone` | 使用已认证的 KooAI MCP 查询 Coupang 类目、商品与评论；通过七关漏斗和机会分筛选候选；生成可筛选、可导出的本地选品报告。 |
+| `kooai-1688-sourcing` | 将 Coupang 候选的规格与搜索意图交给已安装的 `1688-product-find` 执行文本、图片或链接找货；保留货源、SKU、MOQ 与成本证据边界。 |
 
 ## 安装 Skill
 
@@ -28,15 +29,23 @@
 git clone https://github.com/wuhongchen/KooAI-skill.git
 python3 KooAI-skill/skills/kooai-selection-standalone/scripts/install.py --dry-run
 python3 KooAI-skill/skills/kooai-selection-standalone/scripts/install.py
+python3 KooAI-skill/skills/kooai-1688-sourcing/scripts/install.py
 ```
 
-安装后重启或新开 Codex 会话，再使用 `$kooai-selection-standalone` 调用选品 Skill。
+`kooai-1688-sourcing` 是适配层，首次使用前还需安装原作者维护的找货实现：
+
+```bash
+npx skills add next-1688/1688-product-find --skill 1688-product-find
+```
+
+安装后重启或新开 Codex 会话，可使用 `$kooai-selection-standalone` 调用选品 Skill，或使用 `$kooai-1688-sourcing` 调用 1688 找货适配流程。
 
 ## 数据与安全边界
 
 - KooAI MCP 是数据来源；Skill 不得嵌入、打印或保存 API Key、OAuth 令牌、Cookie 或数据库凭据。
 - 独立选品 Skill 只将不含凭据的报告快照写入本地回环页面。
 - 1688/Ego 查询是用户明确发起的候选级补充动作；页面展示价只是供货线索，不是已确认的采购成本。
+- `1688-product-find` 的代码、AK 和服务由原作者维护；本仓库不复制其实现、不代理其请求，也不保存其凭据。请以其仓库的许可、服务条款与输出为准。
 
 ## 仓库结构
 
