@@ -7,7 +7,7 @@ description: Use when a KooAI seller needs to turn Coupang candidate specificati
 
 ## 目的
 
-把已有的 Coupang 候选（标题、用途、材质、尺寸、数量和套装关系）转成可追溯的 1688 找货任务。此 Skill 是 `1688-product-find` 的 KooAI 工作流适配层，不包含、复制或修改其实现。
+把已有的 Coupang 候选（标题、用途、材质、尺寸、数量和套装关系）转成可追溯的 1688 找货任务。此 Skill 是 `1688-product-find` 的 KooAI 工作流适配层，不修改其实现；KooAI 仓库通过 `third_party/1688-product-find` Git 子模块固定其上游源码版本。
 
 ## 前置条件
 
@@ -16,6 +16,8 @@ description: Use when a KooAI seller needs to turn Coupang candidate specificati
    ```bash
    npx skills add next-1688/1688-product-find --skill 1688-product-find
    ```
+
+   如使用 KooAI-skill 的源码仓库进行审计或开发，先执行 `git submodule update --init --recursive` 取得固定版本的上游源码。
 
 2. 使用前读取已安装 `1688-product-find` 的 `SKILL.md` 及与本次命令对应的 reference；其 AK、调用限制、授权方式和错误处理以原 Skill 为准。
 3. 不读取、打印、写入报告或代为保管 AK、令牌、Cookie、密码或其他凭据。

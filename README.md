@@ -23,10 +23,10 @@
 
 ## 安装 Skill
 
-克隆仓库后，把所需 Skill 安装到 Codex 的全局 Skills 目录：
+克隆仓库及其第三方源码依赖后，把所需 Skill 安装到 Codex 的全局 Skills 目录：
 
 ```bash
-git clone https://github.com/wuhongchen/KooAI-skill.git
+git clone --recurse-submodules https://github.com/wuhongchen/KooAI-skill.git
 python3 KooAI-skill/skills/kooai-selection-standalone/scripts/install.py --dry-run
 python3 KooAI-skill/skills/kooai-selection-standalone/scripts/install.py
 python3 KooAI-skill/skills/kooai-1688-sourcing/scripts/install.py
@@ -45,7 +45,17 @@ npx skills add next-1688/1688-product-find --skill 1688-product-find
 - KooAI MCP 是数据来源；Skill 不得嵌入、打印或保存 API Key、OAuth 令牌、Cookie 或数据库凭据。
 - 独立选品 Skill 只将不含凭据的报告快照写入本地回环页面。
 - 1688/Ego 查询是用户明确发起的候选级补充动作；页面展示价只是供货线索，不是已确认的采购成本。
-- `1688-product-find` 的代码、AK 和服务由原作者维护；本仓库不复制其实现、不代理其请求，也不保存其凭据。请以其仓库的许可、服务条款与输出为准。
+- `1688-product-find` 的代码以 Git 子模块固定到 `third_party/1688-product-find`；其 AK 和服务由原作者维护，KooAI 不代理其请求，也不保存其凭据。
+
+## 第三方源码依赖
+
+`third_party/1688-product-find` 指向 [next-1688/1688-product-find](https://github.com/next-1688/1688-product-find) 的固定提交，不是 KooAI 自有实现。首次克隆遗漏子模块时执行：
+
+```bash
+git submodule update --init --recursive
+```
+
+上游源码的许可、服务条款、更新与安全边界以原仓库为准；KooAI 的 MIT 许可证不覆盖该子模块。详情见 [THIRD_PARTY_NOTICES.md](THIRD_PARTY_NOTICES.md)。
 
 ## 仓库结构
 
@@ -55,6 +65,8 @@ skills/<skill-name>/
 ├── agents/openai.yaml
 ├── references/
 └── scripts/
+third_party/
+└── 1688-product-find/  # 上游 Git 子模块
 ```
 
 后续新增的公开 Skill 应保持自包含，不携带私有项目数据，并沿用该目录结构。

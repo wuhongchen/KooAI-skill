@@ -1,0 +1,4 @@
+[submodule "third_party/1688-product-find"]
+	path = third_party/1688-product-find
+	url = https://github.com/next-1688/1688-product-find.git
+	branch = main
