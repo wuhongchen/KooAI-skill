@@ -40,6 +40,10 @@ npx skills add next-1688/1688-product-find --skill 1688-product-find
 
 安装后重启或新开 Codex 会话，可使用 `$kooai-selection-standalone` 调用选品 Skill，或使用 `$kooai-1688-sourcing` 调用 1688 找货适配流程。
 
+## 报告规范
+
+[选品报告 V2 规范](docs/selection-report-v2.md) 定义了面向卖家决策的报告字段、1688 成本证据、统一算价边界、中文判断和淘汰商品展示规则。它是后续独立报告页与导出功能的统一契约；数据不足时必须展示待核验状态，不得编造价格或利润。
+
 ## 数据与安全边界
 
 - KooAI MCP 是数据来源；Skill 不得嵌入、打印或保存 API Key、OAuth 令牌、Cookie 或数据库凭据。
