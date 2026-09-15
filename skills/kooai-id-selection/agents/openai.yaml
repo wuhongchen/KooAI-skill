@@ -1,0 +1,4 @@
+interface:
+  display_name: "商品ID横向选品"
+  short_description: "从Coupang商品ID横向分析类目与潜力商品，匹配货源并导出带图算价Excel"
+  default_prompt: "使用 $kooai-id-selection 分析我提供的Coupang商品ID，比较同类目高销量与近期潜力商品，拆分火箭配送，选1～2款匹配1688并统一算价，导出带图片的Excel。"
