@@ -21,7 +21,7 @@
 | `kooai-selection-standalone` | 使用已认证的 KooAI MCP 查询 Coupang 类目、商品与评论；通过七关漏斗和机会分筛选候选；生成可筛选、可导出的本地选品报告。 |
 | `kooai-1688-sourcing` | 将 Coupang 候选的规格与搜索意图交给已安装的 `1688-product-find` 执行文本、图片或链接找货；保留货源、SKU、MOQ 与成本证据边界。 |
 | [`kooai-hit-following`](skills/kooai-hit-following/SKILL.md) | 从韩国新闻与公开内容发现热点，探测相关配件、耗材与互补商品；独立核验 Coupang 动销、配送与进入空间，并按需补充 1688 货源和统一算价。 |
-| [`kooai-scenario-selection`](skills/kooai-scenario-selection/SKILL.md) | 从厨房、卫浴、清洁洗衣、收纳、办公和宠物等生活场景拆解日用品与耗材需求；核验动销、竞争、配送及复购假设，按需匹配货源和统一算价。 |
+| [`kooai-scenario-selection`](skills/kooai-scenario-selection/SKILL.md) | 从具体生活任务、替代方案与购买动机发现日用品和耗材；结合 Coupang 数据解释研究优先级、入选理由与反证，输出图片表格和页面。仅做市场分析。 |
 
 ## 安装 Skill
 
@@ -56,7 +56,7 @@ npx skills add wuhongchen/KooAI-skill --skill kooai-hit-following
 npx skills add wuhongchen/KooAI-skill --skill kooai-scenario-selection
 ```
 
-然后使用 `$kooai-scenario-selection`，例如：“分析韩国厨房和卫浴的日用品与耗材，找有动销且评价壁垒相对低的方向；排除食品、药品、儿童、电器、大件、季节性及需要 KC 的产品，合规不明单列待核验；核验代表商品的 1688 货源并用统一模型算价，输出含图片的 Excel。”场景和排除条件均可按本次需求调整，数据与找货权限需另行配置。
+然后使用 `$kooai-scenario-selection`，例如：“分析韩国厨房和卫浴的日用品与耗材，细化使用场景、替代方案和购买动机，用 Coupang 数据解释哪些方向值得研究、为什么以及哪些证据会推翻判断；排除食品、药品、儿童、电器、大件、季节性及需要 KC 的产品，合规不明单列待核验；输出含图片的 Excel 和可筛选页面。”场景和排除条件均可按本次需求调整，市场数据访问需配置。本 Skill 不执行货源搜索或采购算价。
 
 ## 报告规范
 
