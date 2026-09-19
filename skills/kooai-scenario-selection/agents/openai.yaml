@@ -1,0 +1,4 @@
+interface:
+  display_name: "KooAI 场景日用与消耗品选品"
+  short_description: "按韩国日常生活场景发现用品与耗材，核验动销、竞争、货源与利润"
+  default_prompt: "使用 $kooai-scenario-selection 分析韩国厨房与卫浴的日用品和消耗品，给出动销证据、进入空间和候选表。"
