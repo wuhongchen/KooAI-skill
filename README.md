@@ -20,6 +20,7 @@
 | --- | --- |
 | `kooai-selection-standalone` | 使用已认证的 KooAI MCP 查询 Coupang 类目、商品与评论；通过七关漏斗和机会分筛选候选；生成可筛选、可导出的本地选品报告。 |
 | `kooai-1688-sourcing` | 将 Coupang 候选的规格与搜索意图交给已安装的 `1688-product-find` 执行文本、图片或链接找货；保留货源、SKU、MOQ 与成本证据边界。 |
+| [`kooai-hit-following`](skills/kooai-hit-following/SKILL.md) | 从韩国新闻与公开内容发现热点，探测相关配件、耗材与互补商品；独立核验 Coupang 动销、配送与进入空间，并按需补充 1688 货源和统一算价。 |
 
 ## 安装 Skill
 
@@ -39,6 +40,14 @@ npx skills add next-1688/1688-product-find --skill 1688-product-find
 ```
 
 安装后重启或新开 Codex 会话，可使用 `$kooai-selection-standalone` 调用选品 Skill，或使用 `$kooai-1688-sourcing` 调用 1688 找货适配流程。
+
+“爆品跟随与附属需求探测”可单独安装：
+
+```bash
+npx skills add wuhongchen/KooAI-skill --skill kooai-hit-following
+```
+
+然后使用 `$kooai-hit-following` 发起研究，例如：“寻找最近30天韩国热点对应的全年通用轻小配件，核验 Coupang 动销与进入空间；排除食品、药品、儿童、大件和需 KC 的商品，证据不足单列待核验。”数据服务、1688 找货与算价能力需要在使用环境中另行配置并认证；安装 Skill 不包含账号权限，也不会自动创建定时监控或写入飞书。
 
 ## 报告规范
 

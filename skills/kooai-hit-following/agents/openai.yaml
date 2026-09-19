@@ -1,0 +1,4 @@
+interface:
+  display_name: "KooAI 爆品跟随与附属需求探测"
+  short_description: "从韩国新闻与内容发现爆品，独立核验其配件、耗材和周边销售机会"
+  default_prompt: "使用 $kooai-hit-following 发现最近30天韩国爆品相关的配件与耗材机会，用Coupang数据核验动销和进入空间。"
